@@ -13,7 +13,7 @@ wn = trtl.Screen()
 wn.bgcolor("salmon")
 
 # Game Configuration/variables
-leaderboard_file_name = "112leaderboard.txt"
+leaderboard_file_name = "122leaderboard.txt"
 player_name = input("Please enter your name: ")
 shapeSizes = [1,1.5,2,2.5,3,3.5,4]
 stampColors = ["white", "bisque", "powderblue", "lavender"]
