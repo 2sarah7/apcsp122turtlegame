@@ -1,8 +1,4 @@
 # Sarah Hall 
-# Turtle jumps to random place when clicked and if fast enough
-# Timer and score
-# Turtle dissapears when timer runs out
-# fix why its not working
 
 # Import statements
 import turtle as trtl
@@ -23,7 +19,7 @@ turtleSize = 2
 turtleShape = "turtle"
 score = 0 
 fontSetUp = ("Georgia", 20, "normal")
-timer = 5
+timer = 10
 counterInterval = 1000 #1000 is 1 second
 timerUp = False
 
@@ -47,7 +43,6 @@ counter.up()
 counter.goto(-350, 300)
 
 # Game functions
-
 def manage_leaderboard():
 
   global score
@@ -61,7 +56,6 @@ def manage_leaderboard():
   if (len(leader_scores_list) < 5 or score >= leader_scores_list[4]):
     lb.update_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list, player_name, score)
     lb.draw_leaderboard(True, leader_names_list, leader_scores_list, t, score)
-
   else:
     lb.draw_leaderboard(False, leader_names_list, leader_scores_list, t, score)
 

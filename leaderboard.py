@@ -1,14 +1,11 @@
 # leaderboard.py
 # The leaderboard module to be used in Activity 1.2.2
-# left off on question 29
-# TODO 12
-# I think something's wrong with 4 (kind of fixed now)
-# 11 not working at all 
 
 # set the levels of scoring
-bronze_score = 15
-silver_score = 20
-gold_score = 25
+bronze_score = 1
+silver_score = 2
+gold_score = 4
+current_name = ""
 
 # return names in the leaderboard file
 def get_names(file_name):
@@ -36,7 +33,6 @@ def get_names(file_name):
   #  6 return the names list in place of the empty list
   return names
 
-  
 # return scores from the leaderboard file
 def get_scores(file_name):
   leaderboard_file = open(file_name, "r")  # be sure you have created this
@@ -69,7 +65,8 @@ def get_scores(file_name):
 
 # update leaderboard by inserting the current player and score to the list at the correct position
 def update_leaderboard(file_name, leader_names, leader_scores,  player_name, player_score):
-
+  global current_name
+  current_name = player_name
   index = 0
   # 8 loop through all the scores in the existing leaderboard list
   
@@ -80,19 +77,16 @@ def update_leaderboard(file_name, leader_names, leader_scores,  player_name, pla
     else:
       index = index + 1
   
-  
   # 10 insert new player and score
   leader_scores.insert(index, player_score)
   leader_names.insert(index, player_name)
 
   # 11 keep both lists at 5 elements only (top 5 players)
-#   if (len(scores) > 5):
-#     names.pop()
-#     scores.pop()
+  while len(leader_names) > 5:
+    leader_names.pop()
+    leader_scores.pop()
     
   # 12 store the latest leaderboard back in the file
-  
-  
   leaderboard_file = open(file_name, "w")  # this mode opens the file and erases its contents for a fresh start
  
   # 13 loop through all the leaderboard elements and write them to the the file
@@ -101,15 +95,14 @@ def update_leaderboard(file_name, leader_names, leader_scores,  player_name, pla
 
   leaderboard_file.close()
    
-
 # draw leaderboard and display a message to player
 def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object, player_score):
   
   # clear the screen and move turtle object to (-200, 100) to start drawing the leaderboard
-  font_setup = ("Arial", 20, "normal")
+  font_setup = ("Georgia", 20, "normal")
   turtle_object.clear()
   turtle_object.penup()
-  turtle_object.goto(-200,100) #was -160,100
+  turtle_object.goto(-160,100) #was -160,100
   turtle_object.hideturtle()
   turtle_object.down()
 
@@ -126,8 +119,10 @@ def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object, pl
   turtle_object.pendown()
 
   # 14 display message about player making/not making leaderboard
-  turtle_object.write("Congratulations!\nYou made the leaderboard!", font=font_setup)
-  turtle_object.write("Sorry!\nYou didn't make the leaderboard.\nMaybe next time!", font=font_setup)
+  if current_name in leader_names:
+    turtle_object.write("Congratulations!\nYou made the leaderboard!", font=font_setup)
+  else:
+    turtle_object.write("Sorry!\nYou didn't make the leaderboard.\nMaybe next time!", font=font_setup)
   
 
   # move turtle to a new line
@@ -142,3 +137,10 @@ def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object, pl
     turtle_object.write("You earned a silver medal!", font=font_setup)
   elif player_score >= bronze_score and player_score:
     turtle_object.write("You earned a bronze medal!", font=font_setup)
+
+
+
+
+
+
+
