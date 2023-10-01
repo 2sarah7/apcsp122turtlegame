@@ -1,7 +1,9 @@
 # leaderboard.py
 # The leaderboard module to be used in Activity 1.2.2
+# left off on question 29
 # TODO 12
-# I think something's wrong with 4
+# I think something's wrong with 4 (kind of fixed now)
+# 11 not working at all 
 
 # set the levels of scoring
 bronze_score = 15
@@ -50,10 +52,10 @@ def get_scores(file_name):
     index += 1 
 
     # 4 use a while loop to get the score
-    while line[index] != "\n":
+    while line[index] != "\n": # when \n didn't work so changed to a space, now it works - note to self - make sure to add space after adding scores to txt file
         print("hi" + str(index))
         leader_score = leader_score + line[index]
-        index += 1 #abc
+        index = index + 1 #abc
     # 5 add the player score to the scores list
     scores.append(int(leader_score))
   print(leader_score)
@@ -84,9 +86,9 @@ def update_leaderboard(file_name, leader_names, leader_scores,  player_name, pla
   leader_names.insert(index, player_name)
 
   # 11 keep both lists at 5 elements only (top 5 players)
-  if (len(scores) > 5):
-    names.pop()
-    scores.pop()
+#   if (len(scores) > 5):
+#     names.pop()
+#     scores.pop()
     
   # 12 store the latest leaderboard back in the file
   
@@ -99,7 +101,6 @@ def update_leaderboard(file_name, leader_names, leader_scores,  player_name, pla
 
   leaderboard_file.close()
    
-  
 
 # draw leaderboard and display a message to player
 def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object, player_score):
