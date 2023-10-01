@@ -2,7 +2,7 @@
 # Turtle jumps to random place when clicked and if fast enough
 # Timer and score
 # Turtle dissapears when timer runs out
-# TODO number 52 and fix why its not working
+# fix why its not working
 
 # Import statements
 import turtle as trtl
