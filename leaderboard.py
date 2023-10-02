@@ -1,10 +1,10 @@
 # leaderboard.py
-# The leaderboard module to be used in Activity 1.2.2
+# The leaderboard module to be used in Activity 1.2.2 
 
 # set the levels of scoring
-bronze_score = 1
-silver_score = 2
-gold_score = 4
+bronze_score = 10
+silver_score = 13
+gold_score = 15
 current_name = ""
 
 # return names in the leaderboard file

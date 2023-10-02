@@ -1,4 +1,5 @@
 # Sarah Hall 
+#1.2.2 Game
 
 # Import statements
 import turtle as trtl
@@ -19,7 +20,7 @@ turtleSize = 2
 turtleShape = "turtle"
 score = 0 
 fontSetUp = ("Georgia", 20, "normal")
-timer = 10
+timer = 15
 counterInterval = 1000 #1000 is 1 second
 timerUp = False
 
